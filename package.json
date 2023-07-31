@@ -1,11 +1,11 @@
 {
-  "name": "opencv-qrcode-decoder",
+  "name": "react-native-opencv-decoder",
   "version": "0.0.1",
   "description": "基于OpenCV实现的本地图像识别二维码的React-Native插件 ",
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/du6688/react-native-local-barcode-recognizer"
+    "url": "https://github.com/yzm8023/react-native-opencv-decoder.git"
   },
   "main": "index.js",
   "scripts": {
