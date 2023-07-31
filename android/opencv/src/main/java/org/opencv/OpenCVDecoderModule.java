@@ -35,7 +35,9 @@ public class OpenCVDecoderModule  extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void decode(final String uri,final Callback callback){
-        Log.e(TAG, "decode uri = " + uri);
+        if(BuildConfig.DEBUG){
+            Log.d(TAG, "decode uri = " + uri);
+        }
         new Thread(){
             @Override
             public void run() {
@@ -43,7 +45,9 @@ public class OpenCVDecoderModule  extends ReactContextBaseJavaModule {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), Uri.parse(uri));
                     if(bitmap != null){
                         String qrCodeInfo = mDecodeUtils.decode(bitmap);
-                        Log.e(TAG, "qrCodeInfo = " + qrCodeInfo);
+                        if(BuildConfig.DEBUG){
+                            Log.d(TAG, "qrCodeInfo = " + qrCodeInfo);
+                        }
                         callback.invoke(qrCodeInfo);
                     }
                 }catch (Exception e){
