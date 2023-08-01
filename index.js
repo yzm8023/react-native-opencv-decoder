@@ -15,10 +15,6 @@ export default class OpencvQRDecoder extends Component {
     }
 
     static decode(base64Img,callback) {
-        if(Platform.OS == 'android'){
-            QRDecoder.decode(base64Img,callback);
-        }else {
-            
-        }
+        QRDecoder.decode(base64Img,callback);
     }
 }
