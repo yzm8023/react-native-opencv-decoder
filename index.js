@@ -2,16 +2,23 @@
 import React, { Component } from 'react';
 import {
     NativeModules,
+    Platform,
 } from 'react-native';
 
-const QRDecoder = NativeModules.OpencvQRDecoder;
+const QRDecoder = Platform.OS == 'android' ? NativeModules.OpencvQRDecoder : NativeModules.LocalBarcodeRecognizer;
 
 export default class OpencvQRDecoder extends Component {
     static init() {
-        QRDecoder.init()
+        if(Platform.OS == 'android'){
+            QRDecoder.init();
+        }
     }
 
-    static decode(uri,callback) {
-        QRDecoder.decode(uri,callback);
+    static decode(base64Img,callback) {
+        if(Platform.OS == 'android'){
+            QRDecoder.decode(base64Img,callback);
+        }else {
+            
+        }
     }
 }
