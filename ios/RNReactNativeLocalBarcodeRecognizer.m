@@ -53,8 +53,7 @@ RCT_EXPORT_METHOD(decode:(NSString *)base64Img callback:(RCTResponseSenderBlock)
         // The barcode format, such as a QR code or UPC-A
         //ZXBarcodeFormat format = result.barcodeFormat;
         NSLog(@"解析成功:%@", contents);
-        NSArray *results = @[contents];
-        callback(@[results]);
+        callback(@[contents]);
     } else {
         // Use error to determine why we didn't get a result, such as a barcode
         // not being found, an invalid checksum, or a format inconsistency.
